@@ -1,0 +1,48 @@
+
+version: 2
+
+sources:
+  - name: commcare
+    schema: test_airbyte_commcare
+    database: postgres
+    tables:
+      - name: raw_form
+        identifier: _airbyte_raw_form
+        description: One record per form data. Includes duplicates and modified data.
+       
+models:
+  - name: extract_form_params
+    description: "Add form ids, and form names along with form data id - maybe this should be part of airbyte ingestion connector"
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: delete_duplicates
+    description: "Deduped model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: flat_json
+    description: "Data json is flattened to be just key value - maybe this should be done in python"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: flat_json_columnar
+    description: "Falt data with extracted component in columns - maybe python and will need schema"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
