@@ -12,7 +12,7 @@ Models include extract and adding form params, delete duplicates, flattening dat
 
 ```
 
-  dbt_test:
+  ddp_dbt_starter:
    outputs:
 
     dev:
