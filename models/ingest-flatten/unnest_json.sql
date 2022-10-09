@@ -4,7 +4,7 @@
 {{ config(
     materialized='table',
     indexes=[
-      {'columns': ['id'], 'type': 'hash'}
+      {'columns': ['data_id'], 'type': 'hash'}
     ]
     ) }}
 
@@ -19,7 +19,7 @@ union
     jsonb_each(f.value) j
     where jsonb_typeof(f.value) = 'object'
 )
-select id, (jsonb_pretty(jsonb_object_agg(key, value)))::jsonb as data
+select id as data_id, (jsonb_pretty(jsonb_object_agg(key, value)))::jsonb as data
 from flat
 where jsonb_typeof(value) <> 'object'
 group by id

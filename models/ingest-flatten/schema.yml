@@ -29,8 +29,8 @@ models:
           - unique
           - not_null
 
-  - name: flat_json
-    description: "Data json is flattened to be just key value - maybe this should be done in python"
+  - name: unnest_json
+    description: "Data json is unnested to single level - maybe this should be done in python"
     columns:
       - name: id
         description: "The primary key for this table"
@@ -39,7 +39,7 @@ models:
           - not_null
 
   - name: flat_json_columnar
-    description: "Falt data with extracted component in columns - maybe python and will need schema"
+    description: "Flat data with a couple of extracted component in columns - maybe python and will need schema"
     columns:
       - name: id
         description: "The primary key for this table"

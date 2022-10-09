@@ -34,5 +34,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ddp_dbt_starter:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    ingest-flatten:
       +materialized: view
+
+on-run-start:
+  - '{{ create_jsonb_flat_view_udf() }}'
+
+quoting:
+  database: true
+  schema: true
+  identifier: false
