@@ -7,7 +7,7 @@ Models include extract and adding form params, delete duplicates, flattening dat
 1. clone and pull repo
 2. Install dbt normally (make sure to install with dbt-postgres) in virtual env
 3. ```dbt --version``` to check dbt-core and postgres adapter are installed and working
-4. add profililes.yaml in ~/.dbt/ and complete the login creds for dev
+4. add profiles.yml in ~/.dbt/ and complete the login creds for dev
 
 
 ```
