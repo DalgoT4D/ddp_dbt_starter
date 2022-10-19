@@ -9,8 +9,25 @@ sources:
       - name: raw_form
         identifier: _airbyte_raw_form
         description: One record per form data. Includes duplicates and modified data.
+        
+  - name: survey-cto
+    schema: public
+    database: postgres
+    tables:
+      - name: raw_surveycto
+        identifier: _airbyte_raw_surveycto_stream
+        description: One record per form data. Includes duplicates and modified data.
        
 models:
+  - name: survey_form
+    description: "Add survey form data" 
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+           
   - name: extract_form_params
     description: "Add form ids, and form names along with form data id - maybe this should be part of airbyte ingestion connector"
     columns:
