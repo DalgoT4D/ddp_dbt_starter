@@ -28,6 +28,9 @@ models:
            - unique
            - not_null
            
+  - name: incremental
+    description: "Incremental for the suvrvey cto data"
+           
   - name: extract_form_params
     description: "Add form ids, and form names along with form data id - maybe this should be part of airbyte ingestion connector"
     columns:
