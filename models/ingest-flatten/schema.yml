@@ -37,6 +37,11 @@ models:
           - unique
           - not_null
 
+  - name: flatten_survey_data
+    description: "Add coulmn"
+    columns:
+      - name: _airbyte_data
+
   - name: delete_duplicates
     description: "Deduped model"
     columns:
